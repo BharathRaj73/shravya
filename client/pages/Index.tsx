@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -8,6 +9,13 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import ContactForm from "@/components/ContactForm";
 
 export default function Index() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations only after component mounts
+    setLoaded(true);
+  }, []);
+
   return (
     <div className="bg-gray-50 text-gray-900">
       <main>
@@ -19,7 +27,7 @@ export default function Index() {
           <div className="container mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10 px-4 sm:px-6 md:px-0">
             {/* Left Column: Text */}
             <div className="md:w-1/2 text-center md:text-left">
-              {/* Medal Ribbon */}
+              {/* Premium Badge */}
               <span className="inline-flex items-center gap-2 rounded-full border border-yellow-500 bg-gradient-to-r from-yellow-400/80 via-yellow-300/80 to-yellow-400/80 px-4 py-1 text-xs font-semibold text-yellow-900 shadow-md backdrop-blur-sm">
                 🏅 Premium Properties • Trusted Developers
               </span>
@@ -27,7 +35,7 @@ export default function Index() {
               <motion.h1
                 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-snug sm:leading-tight md:leading-tight tracking-tight text-blue-600 mt-4"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={loaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7 }}
               >
                 Invest in Prime Land, Secure Your Future
@@ -36,7 +44,7 @@ export default function Index() {
               <motion.p
                 className="mt-4 text-base sm:text-lg md:text-xl text-gray-700 max-w-full sm:max-w-xl md:max-w-2xl mx-auto md:mx-0"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={loaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.2 }}
               >
                 Explore carefully planned plots, navigate layouts for optimal
@@ -47,11 +55,11 @@ export default function Index() {
               <motion.div
                 className="mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center md:justify-start"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={loaded ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.4 }}
               >
                 <a href="#layouts">
-                  <Button className="h-12 px-6 w-full sm:w-auto text-white bg-gradient-to-r from-green-600 to-green-500">
+                  <Button className="h-12 px-6 w-full sm:w-auto text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 transition-colors">
                     Explore Layouts
                   </Button>
                 </a>
@@ -66,21 +74,18 @@ export default function Index() {
 
             {/* Right Column: Hero Image */}
             <div className="md:w-1/2 w-full overflow-hidden rounded-xl shadow-2xl mt-6 md:mt-0">
+              {/* Skeleton Placeholder */}
+              {!loaded && (
+                <div className="w-full h-64 sm:h-80 md:h-[500px] bg-gradient-to-r from-blue-200 to-indigo-200 animate-pulse rounded-xl" />
+              )}
               <motion.img
                 src="https://www.thomsonreuters.com/en-us/posts/wp-content/uploads/sites/20/2023/05/438_AdobeStock_556549775-scaled.jpeg"
                 alt="Hero Showcase"
                 className="object-cover w-full h-64 sm:h-80 md:h-[500px] rounded-xl"
-                initial={{ scale: 1.2, y: 0 }}
-                animate={{ scale: 1, y: [0, -10, 0] }}
-                transition={{
-                  scale: { duration: 20, repeat: Infinity, ease: "linear" },
-                  y: {
-                    duration: 6,
-                    repeat: Infinity,
-                    repeatType: "mirror",
-                    ease: "easeInOut",
-                  },
-                }}
+                initial={{ scale: 1.1, opacity: 0 }}
+                animate={loaded ? { scale: 1, opacity: 1 } : {}}
+                transition={{ duration: 1 }}
+                loading="eager"
               />
             </div>
           </div>
@@ -109,12 +114,52 @@ export default function Index() {
         </section>
 
         {/* Other Sections */}
-        <div className="space-y-8 md:space-y-16 pb-16 md:pb-20">
-          <Showcase />
-          <Images />
-          <LayoutsExplorer />
-          <TestimonialsCarousel />
-          <ContactForm />
+        <div className="space-y-12 md:space-y-20 pb-16 md:pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Showcase />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <Images />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <LayoutsExplorer />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <TestimonialsCarousel />
+          </motion.div>
+
+          <motion.div
+            id="contact"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <ContactForm />
+          </motion.div>
         </div>
       </main>
     </div>
