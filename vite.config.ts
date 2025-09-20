@@ -17,7 +17,7 @@ export default defineConfig(() => ({
     },
   },
   build: {
-    outDir: "../dist/spa", // 👈 relative to client/ now
+    outDir: "/dist/spa", // 👈 relative to client/ now
   },
   plugins: [react(), expressPlugin()],
   resolve: {
