@@ -77,7 +77,7 @@ export default function LayoutsExplorer() {
 
   return (
     <section id="layouts" className="container mx-auto py-12 px-4">
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center tracking-tight text-blue-600">
         Nadaprabhu Kempegowda Layout, Bangalore
       </h2>
 

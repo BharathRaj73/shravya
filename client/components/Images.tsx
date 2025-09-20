@@ -21,7 +21,7 @@ export default function ModernGallery() {
 
   return (
     <section className="container mx-auto py-10 px-4 sm:px-6">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 sm:mb-12 tracking-tight text">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 sm:mb-12 tracking-tight text-blue-600">
         Explore Our Properties
       </h1>
 
