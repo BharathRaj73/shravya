@@ -52,7 +52,7 @@ export default function Showcase() {
             <span className="inline-flex items-center gap-2 rounded-full border bg-blue-50/70 px-3 py-1 text-xs text-blue-700 backdrop-blur">
               Investment you can trust
             </span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
+            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-blue-00">
               Secure your future with premium plots
             </h2>
             <p className="mt-3 text-gray-700 max-w-prose">

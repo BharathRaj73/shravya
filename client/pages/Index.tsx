@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 import Showcase from "@/components/Showcase";
+import Images from "@/components/Images";
 import LayoutsExplorer from "@/components/LayoutsExplorer";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import ContactForm from "@/components/ContactForm";
@@ -13,9 +14,9 @@ export default function Index() {
         {/* Hero Section */}
         <section
           id="hero"
-          className="relative overflow-hidden pt-20 pb-20 md:pb-28"
+          className="relative overflow-hidden pt-16 pb-16 md:pb-28"
         >
-          <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 px-4 md:px-0">
+          <div className="container mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10 px-4 sm:px-6 md:px-0">
             {/* Left Column: Text */}
             <div className="md:w-1/2 text-center md:text-left">
               {/* Medal Ribbon */}
@@ -24,7 +25,7 @@ export default function Index() {
               </span>
 
               <motion.h1
-                className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900"
+                className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-snug sm:leading-tight md:leading-tight tracking-tight text-blue-600 mt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
@@ -33,7 +34,7 @@ export default function Index() {
               </motion.h1>
 
               <motion.p
-                className="mt-4 text-lg md:text-xl text-gray-700 max-w-2xl"
+                className="mt-4 text-base sm:text-lg md:text-xl text-gray-700 max-w-full sm:max-w-xl md:max-w-2xl mx-auto md:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
@@ -44,19 +45,19 @@ export default function Index() {
               </motion.p>
 
               <motion.div
-                className="mt-8 flex flex-col md:flex-row items-center gap-4 justify-center md:justify-start"
+                className="mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center md:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
               >
                 <a href="#layouts">
-                  <Button className="h-12 px-8 text-white bg-gradient-to-r from-blue-600 to-indigo-500">
+                  <Button className="h-12 px-6 w-full sm:w-auto text-white bg-gradient-to-r from-green-600 to-green-500">
                     Explore Layouts
                   </Button>
                 </a>
                 <a
                   href="#contact"
-                  className="text-sm font-medium text-gray-700/80 hover:underline"
+                  className="text-sm font-medium text-gray-700/80 hover:underline mt-2 sm:mt-0"
                 >
                   Contact Us
                 </a>
@@ -64,11 +65,11 @@ export default function Index() {
             </div>
 
             {/* Right Column: Hero Image */}
-            <div className="md:w-1/2 w-full overflow-hidden rounded-xl shadow-2xl">
+            <div className="md:w-1/2 w-full overflow-hidden rounded-xl shadow-2xl mt-6 md:mt-0">
               <motion.img
                 src="https://www.thomsonreuters.com/en-us/posts/wp-content/uploads/sites/20/2023/05/438_AdobeStock_556549775-scaled.jpeg"
                 alt="Hero Showcase"
-                className="object-cover w-full h-[400px] md:h-[500px]"
+                className="object-cover w-full h-64 sm:h-80 md:h-[500px] rounded-xl"
                 initial={{ scale: 1.2, y: 0 }}
                 animate={{ scale: 1, y: [0, -10, 0] }}
                 transition={{
@@ -85,10 +86,10 @@ export default function Index() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-12 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <a
               href="#layouts"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-medium text-gray-700/80 hover:text-indigo-600 hover:bg-white/40 transition-all duration-300 group shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs sm:text-sm md:text-sm font-medium text-gray-700/80 hover:text-indigo-600 hover:bg-white/40 transition-all duration-300 group shadow-sm hover:shadow-md"
             >
               <span>Explore</span>
               <motion.svg
@@ -108,8 +109,9 @@ export default function Index() {
         </section>
 
         {/* Other Sections */}
-        <div className="space-y-10 md:space-y-18 pb-20">
+        <div className="space-y-8 md:space-y-16 pb-16 md:pb-20">
           <Showcase />
+          <Images />
           <LayoutsExplorer />
           <TestimonialsCarousel />
           <ContactForm />

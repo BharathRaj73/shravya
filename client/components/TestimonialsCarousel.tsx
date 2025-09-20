@@ -46,7 +46,7 @@ export default function TestimonialsCarousel() {
       <div className="relative mb-8 rounded-2xl border bg-white/30 backdrop-blur-md p-6 md:p-8 shadow-md">
         <div className="absolute inset-x-8 -top-10 h-24 bg-gradient-to-b from-blue-200/20 to-transparent blur-2xl pointer-events-none" />
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-600">
             Testimonials
           </h2>
           <div className="flex gap-2">

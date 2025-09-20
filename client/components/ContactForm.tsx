@@ -35,7 +35,7 @@ export default function ContactForm() {
     <section id="contact" className="py-12 px-4 bg-gray-50">
       <div className="container mx-auto px-4 flex justify-center">
         <div className="w-full max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-center text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-center text-blue-600">
             Contact
           </h2>
           <p className="text-center text-gray-600 mb-10 max-w-prose mx-auto">
@@ -103,7 +103,7 @@ export default function ContactForm() {
                   variant="gradient"
                   type="submit"
                   disabled={loading}
-                  className="h-12 px-8 text-white bg-gradient-to-r from-blue-600 to-indigo-500"
+                  className="h-12 px-8 text-white bg-gradient-to-r from-green-600 to-green-500"
                 >
                   {loading ? "Sending..." : "Submit"}
                 </Button>
