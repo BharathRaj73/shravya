@@ -1,17 +1,21 @@
+# Netlify Build Configuration
+
 [build]
-  command = "npm ci && npm run build:client"
-  functions = "netlify/functions"
-  publish = "dist/spa"
+  base = "client"                        # Directory containing package.json
+  command = "npm ci && npm run build:client"  # Install dependencies & build frontend
+  publish = "dist/spa"                    # Output folder for SPA
+  functions = "netlify/functions"         # Serverless functions folder
 
 [build.environment]
-  NODE_VERSION = "20.5.0"
+  NODE_VERSION = "20.5.0"                 # Node version for build
 
 [functions]
-  external_node_modules = ["express"]
-  node_bundler = "esbuild"
+  external_node_modules = ["express"]     # Ensure Express is bundled
+  node_bundler = "esbuild"                # Use esbuild for functions
 
+# Redirect all /api/* calls to Netlify functions
 [[redirects]]
-  force = true
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
   status = 200
+  force = true
