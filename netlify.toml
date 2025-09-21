@@ -1,21 +1,12 @@
-# Netlify Build Configuration
-
 [build]
-  base = "client"                        # Directory containing package.json
-  command = "npm ci && npm run build:client"  # Install dependencies & build frontend
-  publish = "dist/spa"                    # Output folder for SPA
-  functions = "netlify/functions"         # Serverless functions folder
+  command = "npm ci && npm run build:client"
+  publish = "dist"   # or "dist/spa" if your Vite build actually outputs spa folder
 
 [build.environment]
-  NODE_VERSION = "20.5.0"                 # Node version for build
+  NODE_VERSION = "20.5.0"
 
-[functions]
-  external_node_modules = ["express"]     # Ensure Express is bundled
-  node_bundler = "esbuild"                # Use esbuild for functions
-
-# Redirect all /api/* calls to Netlify functions
+# For React Router SPA fallback
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
+  from = "/*"
+  to = "/index.html"
   status = 200
-  force = true
