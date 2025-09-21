@@ -1,6 +1,6 @@
 [build]
-  command = "npm ci && npm run build:client"
-  publish = "dist"   # or "dist/spa" if your Vite build actually outputs spa folder
+  command = "npm run build:client"
+  publish = "client/dist/spa"   # or "dist/spa" if your Vite build actually outputs spa folder
 
 [build.environment]
   NODE_VERSION = "20.19.0"
