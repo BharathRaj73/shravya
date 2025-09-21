@@ -3,7 +3,7 @@
   publish = "dist"   # or "dist/spa" if your Vite build actually outputs spa folder
 
 [build.environment]
-  NODE_VERSION = "20.5.0"
+  NODE_VERSION = "20.19.0"
 
 # For React Router SPA fallback
 [[redirects]]
