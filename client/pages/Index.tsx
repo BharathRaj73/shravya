@@ -7,6 +7,7 @@ import Images from "@/components/Images";
 import LayoutsExplorer from "@/components/LayoutsExplorer";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import ContactForm from "@/components/ContactForm";
+import hero from "@/assets/images/hero.jpeg";
 
 export default function Index() {
   const [loaded, setLoaded] = useState(false);
@@ -79,13 +80,14 @@ export default function Index() {
                 <div className="w-full h-64 sm:h-80 md:h-[500px] bg-gradient-to-r from-blue-200 to-indigo-200 animate-pulse rounded-xl" />
               )}
               <motion.img
-                src="https://www.thomsonreuters.com/en-us/posts/wp-content/uploads/sites/20/2023/05/438_AdobeStock_556549775-scaled.jpeg"
+                src={hero}
                 alt="Hero Showcase"
                 className="object-cover w-full h-64 sm:h-80 md:h-[500px] rounded-xl"
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={loaded ? { scale: 1, opacity: 1 } : {}}
                 transition={{ duration: 1 }}
                 loading="eager"
+                onLoad={() => setLoaded(true)} // ✅ set loaded to true when image is loaded
               />
             </div>
           </div>
